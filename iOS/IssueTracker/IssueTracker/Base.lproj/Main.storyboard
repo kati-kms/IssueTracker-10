@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IsW-Wp-QnB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IsW-Wp-QnB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -90,10 +91,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mn9-xC-rNf">
+                                <rect key="frame" x="20" y="762" width="374" height="50"/>
+                                <color key="backgroundColor" name="GithubMainColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hit-0W-twF"/>
+                                </constraints>
+                                <state key="normal" title="로그아웃">
+                                    <color key="titleColor" name="LabelCellColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonTouched:" destination="w9Q-P1-RX6" eventType="touchUpInside" id="BfW-R7-dfN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Ol-CJ-SUv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mn9-xC-rNf" firstAttribute="centerX" secondItem="dxe-My-85x" secondAttribute="centerX" id="ICv-hy-U9x"/>
+                            <constraint firstItem="mn9-xC-rNf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8Ol-CJ-SUv" secondAttribute="leading" constant="20" id="J43-Np-MDl"/>
+                            <constraint firstItem="8Ol-CJ-SUv" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="mn9-xC-rNf" secondAttribute="trailing" constant="20" id="Jtj-23-R7g"/>
+                            <constraint firstItem="8Ol-CJ-SUv" firstAttribute="bottom" secondItem="mn9-xC-rNf" secondAttribute="bottom" constant="50" id="Ld3-ud-EvJ"/>
                             <constraint firstItem="Zql-Mn-hEr" firstAttribute="centerX" secondItem="dxe-My-85x" secondAttribute="centerX" id="PH5-Gg-mpA"/>
                             <constraint firstItem="dpO-uJ-rbn" firstAttribute="top" secondItem="Zql-Mn-hEr" secondAttribute="bottom" constant="12" id="Yyp-6F-u3H"/>
                             <constraint firstItem="8Ol-CJ-SUv" firstAttribute="trailing" secondItem="dpO-uJ-rbn" secondAttribute="trailing" constant="8" id="dVG-pp-omK"/>
@@ -104,6 +122,7 @@
                     <navigationItem key="navigationItem" id="wGp-YR-wn1"/>
                     <connections>
                         <outlet property="avatarImageView" destination="Zql-Mn-hEr" id="ysZ-oP-4K9"/>
+                        <outlet property="logoutButton" destination="mn9-xC-rNf" id="mzM-4g-Bif"/>
                         <outlet property="nameLabel" destination="dpO-uJ-rbn" id="con-tX-zdh"/>
                     </connections>
                 </viewController>
@@ -1091,6 +1110,9 @@
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="GithubMainColor">
             <color red="0.14509803921568629" green="0.16470588235294117" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelCellColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="OpenColor">
             <color red="0.32549019607843138" green="0.64313725490196083" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

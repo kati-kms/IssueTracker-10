@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 	
-	private func configureSignIn() {
+    func configureSignIn() {
 		DispatchQueue.main.async {
 			self.window?.rootViewController?.showSignInView()
 		}

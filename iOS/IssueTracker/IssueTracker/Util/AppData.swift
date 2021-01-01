@@ -23,4 +23,10 @@ struct AppData {
 	
 	@Storage(key: Key.token, defaultValue: "")
 	static var token: String
+    
+    static func reset() {
+        user = User.basic
+        applies = Filters.defaultApplies
+        token = ""
+    }
 }

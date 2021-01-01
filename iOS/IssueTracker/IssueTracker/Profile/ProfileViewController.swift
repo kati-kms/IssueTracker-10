@@ -11,17 +11,30 @@ class ProfileViewController: UIViewController {
 	
 	@IBOutlet weak var avatarImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
-		
-	override func viewDidLoad() {
+    @IBOutlet weak var logoutButton: UIButton!
+    
+    override func viewDidLoad() {
 		super.viewDidLoad()
-		setRound(imageView: avatarImageView)
+        setRound(with: logoutButton, offset: 10)
+        setRound(imageView: avatarImageView)
 		configureProfile(user: AppData.user)
 	}
+    
+    @IBAction func logoutButtonTouched(_ sender: Any) {
+        AppData.reset()
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        sceneDelegate.configureSignIn()
+    }
 	
 	func setRound(imageView: UIImageView) {
 		imageView.layer.cornerRadius = imageView.bounds.width / 2
 		imageView.layer.masksToBounds = true
 	}
+    
+    func setRound(with view: UIView, offset: CGFloat) {
+        view.layer.cornerRadius = offset
+        view.layer.masksToBounds = true
+    }
 
 	func configureProfile(user: User) {
 		nameLabel.text = user.name
