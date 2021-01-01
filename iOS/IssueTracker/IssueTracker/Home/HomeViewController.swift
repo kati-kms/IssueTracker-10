@@ -49,11 +49,16 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-		content.text = contents[indexPath.row].title
-		content.image = UIImage(systemName: contents[indexPath.row].imageName)
-        content.imageProperties.tintColor = .systemBlue
-        cell.contentConfiguration = content
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = contents[indexPath.row].title
+            content.image = UIImage(systemName: contents[indexPath.row].imageName)
+            content.imageProperties.tintColor = .systemBlue
+            cell.contentConfiguration = content
+        } else {
+            cell.textLabel?.text = contents[indexPath.row].title
+            cell.imageView?.image = UIImage(systemName: contents[indexPath.row].imageName)
+        }
         return cell
     }
 }

@@ -38,9 +38,14 @@ class FilterDiffableDataSource {
 	func configureDataSource() {
 		let cellProvider = { (tableView: UITableView, indexPath: IndexPath, filterContent: Filter) -> UITableViewCell? in
 			let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.filterCell, for: indexPath)
-			var content = cell.defaultContentConfiguration()
-			content.text = filterContent.description
-			cell.contentConfiguration = content
+			if #available(iOS 14.0, *) {
+                var content = cell.defaultContentConfiguration()
+                content.text = filterContent.description
+                cell.contentConfiguration = content
+            } else {
+                // Fallback on earlier versions
+                cell.textLabel?.text = filterContent.description
+            }
 			cell.isSelected = filterContent.isApply
 			if cell.isSelected {
 				tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
